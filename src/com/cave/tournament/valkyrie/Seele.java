@@ -65,7 +65,7 @@ public class Seele implements Valkyrie {
         this.skillOne();
 
         // 女武神攻击
-        ValkyrieAttack.attackValkyrie(attack, name, valkyrie);
+        ValkyrieAttack.attackValkyrie(this, valkyrie);
     }
 
     @Override
@@ -84,8 +84,36 @@ public class Seele implements Valkyrie {
     }
 
     @Override
+    public Integer getAttack() {
+        return attack;
+    }
+
+    @Override
+    public void setAttack(Integer attack) {
+        this.attack = attack;
+    }
+
+    @Override
+    public void reduceAttack(Integer reduceAttack) {
+        attack -= reduceAttack;
+        if (attack < 0) {
+            attack = 0;
+        }
+    }
+
+    @Override
     public Integer getDefense() {
         return defense;
+    }
+
+    @Override
+    public void reduceDefense(Integer reduceDefense) {
+        defense -= reduceDefense;
+    }
+
+    @Override
+    public void recoveryDefense() {
+        defense = 13;
     }
 
 }

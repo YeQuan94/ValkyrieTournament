@@ -15,6 +15,16 @@ public interface Valkyrie {
 
     void setHp(Integer hp);
 
+    Integer getAttack();
+
+    void setAttack(Integer attack);
+
+    void reduceAttack(Integer reduceAttack);
+
     Integer getDefense();
+
+    void reduceDefense(Integer reduceDefense);
+
+    void recoveryDefense();
 
 }

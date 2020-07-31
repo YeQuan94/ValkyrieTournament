@@ -18,6 +18,8 @@ public class SakuraKallen implements Valkyrie {
 
     private Integer attack = 20;
 
+    private Integer defense = 9;
+
 //    private Integer speed = 18;
 
     /**
@@ -59,7 +61,7 @@ public class SakuraKallen implements Valkyrie {
         }
 
         // 女武神攻击
-        ValkyrieAttack.attackValkyrie(attack, name, valkyrie);
+        ValkyrieAttack.attackValkyrie(this, valkyrie);
     }
 
     @Override
@@ -78,8 +80,36 @@ public class SakuraKallen implements Valkyrie {
     }
 
     @Override
+    public Integer getAttack() {
+        return attack;
+    }
+
+    @Override
+    public void setAttack(Integer attack) {
+        this.attack = attack;
+    }
+
+    @Override
+    public void reduceAttack(Integer reduceAttack) {
+        attack -= reduceAttack;
+        if (attack < 0) {
+            attack = 0;
+        }
+    }
+
+    @Override
     public Integer getDefense() {
-        return 9;
+        return defense;
+    }
+
+    @Override
+    public void reduceDefense(Integer reduceDefense) {
+        defense -= reduceDefense;
+    }
+
+    @Override
+    public void recoveryDefense() {
+        defense = 9;
     }
 
 }

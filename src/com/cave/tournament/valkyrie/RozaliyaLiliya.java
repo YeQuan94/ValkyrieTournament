@@ -2,6 +2,7 @@ package com.cave.tournament.valkyrie;
 
 import com.cave.tournament.valkyrie.base.Valkyrie;
 import com.cave.tournament.valkyrie.base.ValkyrieAttack;
+import com.cave.tournament.valkyrie.review.TeRiRi;
 
 import java.util.Random;
 
@@ -17,6 +18,8 @@ public class RozaliyaLiliya implements Valkyrie {
     private Integer hp = 100;
 
     private Integer attack = 18;
+
+    private Integer defense = 10;
 
 //    private Integer speed = 10;
 
@@ -60,16 +63,19 @@ public class RozaliyaLiliya implements Valkyrie {
             }
         }
 
+        Valkyrie rozaliyaLiliya = new RozaliyaLiliya();
         Random random = new Random();
         int successRate = random.nextInt(100) + 1;
         // 50%概率发动 技能2 造成233伤害
         if (successRate <= 50) {
             System.out.println(name + "触发【变成星星吧！】技能造成233大伤害");
-            ValkyrieAttack.attackValkyrie(233, name, valkyrie);
+            rozaliyaLiliya.setAttack(233);
+            ValkyrieAttack.attackValkyrie(rozaliyaLiliya, valkyrie);
 
         } else {
             System.out.println(name + "触发【变成星星吧！】技能造成50伤害");
-            ValkyrieAttack.attackValkyrie(50, name, valkyrie);
+            rozaliyaLiliya.setAttack(50);
+            ValkyrieAttack.attackValkyrie(rozaliyaLiliya, valkyrie);
         }
 
         // 只能发动一次
@@ -85,7 +91,7 @@ public class RozaliyaLiliya implements Valkyrie {
         }
 
         // 女武神攻击
-        ValkyrieAttack.attackValkyrie(attack, name, valkyrie);
+        ValkyrieAttack.attackValkyrie(this, valkyrie);
     }
 
     public String getName() {
@@ -100,8 +106,36 @@ public class RozaliyaLiliya implements Valkyrie {
         this.hp = hp;
     }
 
+    @Override
+    public Integer getAttack() {
+        return attack;
+    }
+
+    @Override
+    public void setAttack(Integer attack) {
+        this.attack = attack;
+    }
+
+    @Override
+    public void reduceAttack(Integer reduceAttack) {
+        attack -= reduceAttack;
+        if (attack < 0) {
+            attack = 0;
+        }
+    }
+
     public Integer getDefense() {
-        return 10;
+        return defense;
+    }
+
+    @Override
+    public void reduceDefense(Integer reduceDefense) {
+        defense -= reduceDefense;
+    }
+
+    @Override
+    public void recoveryDefense() {
+        defense = 10;
     }
 
 }

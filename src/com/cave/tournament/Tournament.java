@@ -2,6 +2,9 @@ package com.cave.tournament;
 
 import com.cave.tournament.valkyrie.*;
 import com.cave.tournament.valkyrie.base.Valkyrie;
+import com.cave.tournament.valkyrie.review.FuHua;
+import com.cave.tournament.valkyrie.review.Rita;
+import com.cave.tournament.valkyrie.review.TeRiRi;
 
 /**
  * @description: 武斗会
@@ -16,12 +19,51 @@ public class Tournament {
 
     public static void main(String[] args) {
 
-        for (int i = 0; i < 100000; i++) {
-            kianaVSRozaliyaLiliya();
+        for (int i = 0; i < 10000; i++) {
+            ritaVSFuHua();
         }
 
-        System.out.println("琪亚娜胜利次数：" + valkyrieACount + "，阿琳姐妹胜利次数：" + valkyrieBCount);
+        System.out.println("丽塔胜利次数：" + valkyrieACount + "，符华胜利次数：" + valkyrieBCount);
 
+    }
+
+    /**
+     * 丽塔 VS 符华
+     */
+    private static void ritaVSFuHua() {
+        int count = 1;
+
+        // 丽塔速度快于符华，A：丽塔，B：符华
+        Valkyrie valkyrieA = new Rita();
+        Valkyrie valkyrieB = new FuHua();
+
+        tournament(count, valkyrieA, valkyrieB);
+    }
+
+    /**
+     * 德丽莎 VS 符华
+     */
+    private static void teRiRiVSFuHua() {
+        int count = 1;
+
+        // 德丽莎速度快于符华，A：德丽莎，B：符华
+        Valkyrie valkyrieA = new TeRiRi();
+        Valkyrie valkyrieB = new FuHua();
+
+        tournament(count, valkyrieA, valkyrieB);
+    }
+
+    /**
+     * 德丽莎 VS 丽塔
+     */
+    private static void teRiRiVSRita() {
+        int count = 1;
+
+        // 德丽莎速度快于丽塔，A：德丽莎，B：丽塔
+        Valkyrie valkyrieA = new TeRiRi();
+        Valkyrie valkyrieB = new Rita();
+
+        tournament(count, valkyrieA, valkyrieB);
     }
 
     /**

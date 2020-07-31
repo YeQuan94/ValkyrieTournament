@@ -18,6 +18,8 @@ public class Kiana implements Valkyrie {
 
     private Integer attack = 24;
 
+    private Integer defense = 11;
+
 //    private Integer speed = 23;
 
     // true: 未眩晕, false: 眩晕
@@ -43,7 +45,7 @@ public class Kiana implements Valkyrie {
         System.out.println(name + "发动【吃我一矛！】技能，超大幅度提升攻击力，UP 后：" + attack);
 
         // 女武神攻击
-        ValkyrieAttack.attackValkyrie(attack, name, valkyrie);
+        ValkyrieAttack.attackValkyrie(this, valkyrie);
         // 攻击结束，攻击力回复
         attack = 24;
         // 触发 技能2
@@ -84,7 +86,7 @@ public class Kiana implements Valkyrie {
         }
 
         // 女武神攻击
-        ValkyrieAttack.attackValkyrie(attack, name, valkyrie);
+        ValkyrieAttack.attackValkyrie(this, valkyrie);
 
         // 对战 罗莎莉亚 & 莉莉娅 需要触发对方 技能1
         if (valkyrie instanceof RozaliyaLiliya) {
@@ -109,8 +111,36 @@ public class Kiana implements Valkyrie {
     }
 
     @Override
+    public Integer getAttack() {
+        return attack;
+    }
+
+    @Override
+    public void setAttack(Integer attack) {
+        this.attack = attack;
+    }
+
+    @Override
+    public void reduceAttack(Integer reduceAttack) {
+        attack -= reduceAttack;
+        if (attack < 0) {
+            attack = 0;
+        }
+    }
+
+    @Override
     public Integer getDefense() {
-        return 11;
+        return defense;
+    }
+
+    @Override
+    public void reduceDefense(Integer reduceDefense) {
+        defense -= reduceDefense;
+    }
+
+    @Override
+    public void recoveryDefense() {
+        defense = 11;
     }
 
 }

@@ -18,6 +18,8 @@ public class Durandal implements Valkyrie {
 
     private Integer attack = 19;
 
+    private Integer defense = 10;
+
 //    private Integer speed = 15;
 
     /**
@@ -54,7 +56,7 @@ public class Durandal implements Valkyrie {
         this.skillOne();
 
         // 女武神攻击
-        ValkyrieAttack.attackValkyrie(attack, name, valkyrie);
+        ValkyrieAttack.attackValkyrie(this, valkyrie);
 
         // 对战 罗莎莉亚 & 莉莉娅 需要触发对方 技能1
         if (valkyrie instanceof RozaliyaLiliya) {
@@ -75,8 +77,36 @@ public class Durandal implements Valkyrie {
         this.hp = hp;
     }
 
+    @Override
+    public Integer getAttack() {
+        return attack;
+    }
+
+    @Override
+    public void setAttack(Integer attack) {
+        this.attack = attack;
+    }
+
+    @Override
+    public void reduceAttack(Integer reduceAttack) {
+        attack -= reduceAttack;
+        if (attack < 0) {
+            attack = 0;
+        }
+    }
+
     public Integer getDefense() {
-        return 10;
+        return defense;
+    }
+
+    @Override
+    public void reduceDefense(Integer reduceDefense) {
+        defense -= reduceDefense;
+    }
+
+    @Override
+    public void recoveryDefense() {
+        defense = 10;
     }
 
 }
