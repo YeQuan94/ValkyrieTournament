@@ -2,9 +2,6 @@ package com.cave.tournament;
 
 import com.cave.tournament.valkyrie.*;
 import com.cave.tournament.valkyrie.base.Valkyrie;
-import com.cave.tournament.valkyrie.review.FuHua;
-import com.cave.tournament.valkyrie.review.Rita;
-import com.cave.tournament.valkyrie.review.TeRiRi;
 
 /**
  * @description: 武斗会
@@ -19,11 +16,11 @@ public class Tournament {
 
     public static void main(String[] args) {
 
-        for (int i = 0; i < 10000; i++) {
-            ritaVSFuHua();
+        for (int i = 0; i < 100000; i++) {
+            teRiRiVSFuHua();
         }
 
-        System.out.println("丽塔胜利次数：" + valkyrieACount + "，符华胜利次数：" + valkyrieBCount);
+        System.out.println("德丽莎胜利次数：" + valkyrieACount + "，符华胜利次数：" + valkyrieBCount);
 
     }
 

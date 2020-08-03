@@ -1,7 +1,7 @@
 package com.cave.tournament.valkyrie.base;
 
-import com.cave.tournament.valkyrie.review.FuHua;
-import com.cave.tournament.valkyrie.review.Rita;
+import com.cave.tournament.valkyrie.FuHua;
+import com.cave.tournament.valkyrie.Rita;
 
 import java.math.BigDecimal;
 import java.util.Random;

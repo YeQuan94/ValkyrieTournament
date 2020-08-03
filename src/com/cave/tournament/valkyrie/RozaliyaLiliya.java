@@ -2,7 +2,6 @@ package com.cave.tournament.valkyrie;
 
 import com.cave.tournament.valkyrie.base.Valkyrie;
 import com.cave.tournament.valkyrie.base.ValkyrieAttack;
-import com.cave.tournament.valkyrie.review.TeRiRi;
 
 import java.util.Random;
 

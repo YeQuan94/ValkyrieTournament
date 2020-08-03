@@ -1,4 +1,4 @@
-package com.cave.tournament.valkyrie.review;
+package com.cave.tournament.valkyrie;
 
 import com.cave.tournament.valkyrie.base.Valkyrie;
 import com.cave.tournament.valkyrie.base.ValkyrieAttack;
@@ -34,6 +34,10 @@ public class Rita implements Valkyrie {
      * @param valkyrie 被攻击的女武神
      */
     private void skillOne(Valkyrie valkyrie) {
+        if (ValkyrieAttack.fuHuaSkillTwo(valkyrie)) {
+            return;
+        }
+
         Random random = new Random();
         int successRate = random.nextInt(100) + 1;
         // 35%概率发动 技能1
@@ -50,6 +54,10 @@ public class Rita implements Valkyrie {
      * @param valkyrie 被攻击的女武神
      */
     private void skillTwo(Valkyrie valkyrie) {
+        if (ValkyrieAttack.fuHuaSkillTwo(valkyrie)) {
+            return;
+        }
+
         valkyrie.setHp(valkyrie.getHp() + 4);
         // 两回合不能使用技能
         ritaSkillTwoFlag = 2;
